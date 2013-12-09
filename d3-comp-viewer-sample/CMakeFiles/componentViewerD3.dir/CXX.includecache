@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/carryon/workspace/independent-study/d3-comp-viewer-sample/Parser.cpp
+iostream
+-
+Parser.h
+/home/carryon/workspace/independent-study/d3-comp-viewer-sample/Parser.h
+string
+-
+
+/home/carryon/workspace/independent-study/d3-comp-viewer-sample/Parser.h
+fstream
+-
+stack
+-
+

@@ -1,0 +1,31 @@
+{
+	"name": "root",
+	"children": [
+		{
+			"name": "GCM",
+			"children": [
+				{
+					"name": "GCM_MCC",
+					"size": 1006
+				},
+				{
+					"name": "MCS",
+					"size": 1006
+				}			
+			]
+		},
+		{
+			"name": "cisstComponentViewer",
+			"children": [
+				{
+					"name": "ComponentViewerD3",
+					"size": 1006
+				},
+				{
+					"name": "cisstComponentViewer_MCC",
+					"size": 1006
+				}			
+			]
+		}	
+	]
+}
