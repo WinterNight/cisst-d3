@@ -11,7 +11,7 @@ class ComponentViewerD3 : public mtsComponentViewer
 {
 private:
     // Give an output file name to initialize Parser
-    Parser * parser = new Parser("output_d3");
+    Parser * parser = new Parser("output");
 protected:
     // Event Handlers
     void AddComponentHandler(const mtsDescriptionComponent &componentInfo);
