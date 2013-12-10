@@ -41,7 +41,7 @@ void ComponentViewerD3::Cleanup(void)
 
     // close file for d3 ouput file
     parser->CloseFile();
-    std::out << "parser cleanup ................"
+    std::cout << "parser cleanup ................";
     std::cout << "###### ComponentViewerD3::Cleanup" << std::endl;
 }
 
@@ -64,13 +64,13 @@ void ComponentViewerD3::SendAllInfo(void)
     processList = ManagerComponentServices->GetNamesOfProcesses();
     for (i = 0; i < processList.size(); i++) {
         componentList = ManagerComponentServices->GetNamesOfComponents(processList[i]);
-        parser->ParseProcess(processList[i]);
+        // parser->ParseProcess(processList[i]);
 
         for (j = 0; j < componentList.size(); j++) {
             if (mtsManagerGlobal::IsProxyComponent(componentList[j]))
                 continue;
             std::cout << "\tComponent: " << componentList[j] << std::endl;
-            parser->ParseComponent(componentList[j]);
+            // parser->ParseComponent(componentList[j]);
 
             ManagerComponentServices->GetNamesOfInterfaces(
                 processList[i], componentList[j], 
@@ -86,7 +86,8 @@ void ComponentViewerD3::SendAllInfo(void)
     std::vector<mtsDescriptionConnection> connectionList;
     connectionList = ManagerComponentServices->GetListOfConnections();
     for (i = 0; i < connectionList.size(); i++) {
-        std::cout << "\t" << connectionList[i] << std::endl;
+        // std::cout << "\t" << connectionList[i] << std::endl;
+        parser -> ParseConnection(connectionList[i].Client.ProcessName);
     }
 }
 

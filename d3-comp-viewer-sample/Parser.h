@@ -22,6 +22,7 @@ public:
     void ParseProcess(string s);
     void ParseComponent(string s);
     void ParseInterface(string s);
+    void ParseConnection(string s);
     // void FlushStack(); // write close parentheses 
     string PeekStackTop();
 };

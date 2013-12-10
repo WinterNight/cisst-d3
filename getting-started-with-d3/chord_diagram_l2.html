@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.chord path {
+  fill-opacity: .67;
+  stroke: #000;
+  stroke-width: .5px;
+}
+
+</style>
+<body>
+<script src="d3.js"></script>
+<script>
+
+// From http://mkweb.bcgsc.ca/circos/guide/tables/
+var matrix = [
+  [0,  5871, 8916, 2868],
+  [ 1951, 0, 2060, 6171],
+  [ 8010, 16145, 0, 8045],
+  [ 1013,   990,  940, 0]
+];
+// var matrix;
+
+d3.json("matrix.json", function(error, json) {
+  if (!json) return "null data";
+  if (error) return console.warn(error);
+  matrix = json;
+});
+
+// var d;
+// d3.json("matrix.json", function(error, json) {
+//   if (error) return console.warn(error);
+//   d = json;
+//   console.log(d);
+// });
+
+var level2_matrix = [
+  [ 1951, 5871, 10976, 9039],
+  [ 1013,   990,  940, 0],
+  [ 8010, 16145, 0, 8045]
+];
+
+//padding is the gap width
+var chord = d3.layout.chord()
+    .padding(.05)
+    .sortSubgroups(d3.descending)
+    .matrix(matrix);
+
+var level2_chord = d3.layout.chord()
+    .padding(.05)
+    .sortSubgroups(d3.descending)
+    .matrix(level2_matrix);
+
+var width = 900,
+    height = 600,
+    rx = width /2,
+    ry = height /2,
+    m0,
+    rotate = 0,
+    innerRadius = Math.min(width, height) * .41,
+    outerRadius = innerRadius * 1.1;
+// second level circle
+var level2_innerRadius = outerRadius + 20,
+    level2_outerRadius = level2_innerRadius * 1.1;
+
+var div = d3.select("body").insert("div")
+    // .style("top", "-80px")
+    // .style("left", "-160px")
+    .style("width", width + "px")
+    .style("height", height + "px")
+    .style("position", "absolute")
+    .style("-webkit-backface-visibility", "hidden");
+// color
+var fill = d3.scale.ordinal()
+    .domain(d3.range(4))
+    .range(["#000000", "#FFDD89", "#957244", "#F26223"]);
+
+var svg = div.append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("id", "circles")
+    .attr("transform", "translate(" + rx + "," + ry + ")");
+
+// Add a group per neighborhood.
+var group = svg.selectAll(".group")
+    .data(chord.groups)
+  .enter().append("g")
+    .attr("class", "group")
+    .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+    .on("mouseover", fade(.1))
+    .on("mouseout", fade(1));
+    
+// Add the group arc.
+var groupPath = group.append("path")
+    .attr("id", function(d, i) {return "group" + i;})
+    .style("fill", function(d) { return fill(d.index); })
+    .style("stroke", function(d) { return fill(d.index); })
+    .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
+    .on("mousedown", mousedown);
+
+temp = d3.select("#group0");
+// Get the bounded data for the selection
+console.log(temp.datum());
+console.log(temp.datum().startAngle);
+
+// second level circle
+var groupPath_level2 = group.append("path")
+    .attr("id", function(d, i) {
+      var tempSize = d3.selectAll(".group").size();
+      return "group" + i + tempSize;
+    })
+    .style("fill", function(d) { return fill(d.index); })
+    .style("stroke", function(d) { return fill(d.index); })
+    .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
+    .on("mousedown", mousedown);
+
+// Add a text label.
+var groupText = group.append("text")
+    .attr("x", 6)
+    .attr("dy", 15);
+var cities = ["Beijing", "Baltimore", "NewYork", "Harbin"];
+groupText.append("textPath")
+  .attr("xlink:href", function(d, i) { return "#group" + i; })
+    .text(function(d, i) { return "lala"; });
+
+var ticks = svg.append("g").selectAll("g")
+    .data(chord.groups)
+  .enter().append("g").selectAll("g")
+    .data(groupTicks)
+  .enter().append("g")
+    .attr("transform", function(d) {
+      return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+          + "translate(" + outerRadius + ",0)";
+    });
+
+ticks.append("line")
+    .attr("x1", 1)
+    .attr("y1", 0)
+    .attr("x2", 5)
+    .attr("y2", 0)
+    .style("stroke", "#000");
+
+ticks.append("text")
+    .attr("x", 8)
+    .attr("dy", ".35em")
+    .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180)translate(-16)" : null; })
+    .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+    .text(function(d) { return d.label; });
+
+svg.append("g")
+    .attr("class", "chord")
+  .selectAll("path")
+    .data(chord.chords)
+  .enter().append("path")
+    .attr("d", d3.svg.chord().radius(innerRadius))
+    .style("fill", function(d) { return fill(d.target.index); })
+    .style("opacity", 1);
+
+// Returns an array of tick angles and labels, given a group.
+function groupTicks(d) {
+  var k = (d.endAngle - d.startAngle) / d.value;
+  return d3.range(0, d.value, 1000).map(function(v, i) {
+    return {
+      angle: v * k + d.startAngle,
+      label: i % 5 ? null : v / 1000 + "k"
+    };
+  });
+}
+
+// Returns an event handler for fading a given chord group.
+function fade(opacity) {
+  return function(g, i) {
+    svg.selectAll(".chord path")
+        .filter(function(d) { return d.source.index != i && d.target.index != i; })
+      .transition()
+        .style("opacity", opacity);
+  };
+}
+
+d3.select(window)
+  .on("mousemove", mousemove)
+  .on("mouseup", mouseup);
+
+function mouse(e) {
+  return [e.pageX - rx, e.pageY - ry];
+}
+
+function mousedown() {
+  m0 = mouse(d3.event);
+  d3.event.preventDefault();
+}
+
+function mousemove() {
+  if (m0) {
+    var m1 = mouse(d3.event),
+        dm = Math.atan2(cross(m0, m1), dot(m0, m1)) * 180 / Math.PI;
+        div.style("-webkit-transform", "rotateZ(" + dm + "deg)");
+  }
+}
+
+function mouseup() {
+  if (m0) {
+    var m1 = mouse(d3.event),
+        dm = Math.atan2(cross(m0, m1), dot(m0, m1)) * 180 / Math.PI;
+
+    rotate += dm;
+    if (rotate > 360) rotate -= 360;
+    else if (rotate < 0) rotate += 360;
+    m0 = null;
+
+    div.style("-webkit-transform", null);
+
+    svg
+        .attr("transform", "translate(" + rx + "," + ry + ")rotate(" + rotate + ")")
+    //** Cause text display wrong
+    //   .selectAll("g.group text")
+    //     .attr("dx", function(d) { return (d.x + rotate) % 360 < 180 ? 8 : -8; })
+    //     .attr("text-anchor", function(d) { return (d.x + rotate) % 360 < 180 ? "start" : "end"; })
+    //     .attr("transform", function(d) { return (d.x + rotate) % 360 < 180 ? null : "rotate(180)"; });
+  }
+}
+
+function cross(a, b) {
+  return a[0] * b[1] - a[1] * b[0];
+}
+
+function dot(a, b) {
+  return a[0] * b[0] + a[1] * b[1];
+}
+// OLD WAY TO ADD CIRCLE
+// svg.append("g").selectAll("path")
+//   .data(chord.groups)
+// .enter().append("path")
+//   .style("fill", function(d) { return fill(d.index); })
+//   .style("stroke", function(d) { return fill(d.index); })
+//   .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
+//   .on("mouseover", fade(.1))
+//   .on("mouseout", fade(1));
+// svg.append("g").selectAll("path")
+//     .data(level2_chord.groups)
+//   .enter().append("path")
+//     .style("fill", function(d) { return fill(d.index); })
+//     .style("stroke", function(d) { return fill(d.index); })
+//     .attr("d", d3.svg.arc().innerRadius(level2_innerRadius).outerRadius(level2_outerRadius))
+//     .on("mouseover", fade(.1))
+//     .on("mouseout", fade(1));
+
+</script>

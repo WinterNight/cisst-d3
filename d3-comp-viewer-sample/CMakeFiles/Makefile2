@@ -50,10 +50,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/carryon/workspace/independent-study/d3-comp-viewer-sample
+CMAKE_SOURCE_DIR = /home/carryon/workspace/independent-study/cisst-d3/d3-comp-viewer-sample
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/carryon/workspace/independent-study/d3-comp-viewer-sample
+CMAKE_BINARY_DIR = /home/carryon/workspace/independent-study/cisst-d3/d3-comp-viewer-sample
 
 #=============================================================================
 # Target rules for target CMakeFiles/componentViewerD3.dir
@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = /home/carryon/workspace/independent-study/d3-comp-viewer-samp
 CMakeFiles/componentViewerD3.dir/all:
 	$(MAKE) -f CMakeFiles/componentViewerD3.dir/build.make CMakeFiles/componentViewerD3.dir/depend
 	$(MAKE) -f CMakeFiles/componentViewerD3.dir/build.make CMakeFiles/componentViewerD3.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/carryon/workspace/independent-study/d3-comp-viewer-sample/CMakeFiles  1 2 3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/carryon/workspace/independent-study/cisst-d3/d3-comp-viewer-sample/CMakeFiles  1 2 3
 	@echo "Built target componentViewerD3"
 .PHONY : CMakeFiles/componentViewerD3.dir/all
 
@@ -72,9 +72,9 @@ all: CMakeFiles/componentViewerD3.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/componentViewerD3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/carryon/workspace/independent-study/d3-comp-viewer-sample/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/carryon/workspace/independent-study/cisst-d3/d3-comp-viewer-sample/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/componentViewerD3.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/carryon/workspace/independent-study/d3-comp-viewer-sample/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/carryon/workspace/independent-study/cisst-d3/d3-comp-viewer-sample/CMakeFiles 0
 .PHONY : CMakeFiles/componentViewerD3.dir/rule
 
 # Convenience name for target.

@@ -107,6 +107,11 @@ void Parser::ParseComponent(string s)
 void Parser::ParseInterface(string s)
 {
 }
+
+void Parser::ParseConnection(string s)
+{
+  std::cout << "\t" << s << std::endl;
+}
 // a square bracket and a curly bracket left on the stack.
 // void Parser::FlushStack()
 // {
