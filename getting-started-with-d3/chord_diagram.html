@@ -86,59 +86,81 @@ d3.json("matrix.json", function(error, data) {
       .style("fill", function(d) { return fill(d.target.index); })
       .style("opacity", 1);
   /**
-   * Add components layer
-   * @var component, ifaceIndex, sAngle, eAngle
+   * Add layer
+   * @param {string} layer 
    *
    * XXX http://stackoverflow.com/questions/14378879/how-can-i-get-the-startangle-and-endangle-of-each-arc-in-the-sunburst-example-us
    */
+  function addLayer(layer, data, rGap, dataRelat) {
+    svg.selectAll("." + layer)
+      .data(data)
+      .enter().append("g")
+        .attr("class", layer)
+      .append("path")
+        .attr("id", function(d, i) { return layer + i; })
+        .style("fill", function(d, i) { return fill(i); })
+        .style("stroke", function(d, i) {return fill(i); })
+        .attr("d", d3.svg.arc()
+          .innerRadius(innerRadius + rGap)
+          .outerRadius(outerRadius + rGap)
+          .startAngle(function(d, i) {
+            outerLayer = dataRelat[i];
+            innerLayerIndex = outerLayer[0];
+            sAngle = d3.select("#interface" + innerLayerIndex).datum().startAngle;
+            return sAngle;
+          }).endAngle( function(d, i) {
+            outerLayer = dataRelat[i];
+            innerLayerIndex = outerLayer[outerLayer.length - 1];
+            eAngle = d3.select("#interface" + innerLayerIndex).datum().endAngle;
+            return eAngle;
+          }))
+        .on("mouseover", fade(.1))
+        .on("mouseout", fade(1))
+        .on("mousedown", mousedown);
+  }
 
-  var componentPath = svg.selectAll(".component")
-      .data(data["components"])
-    .enter().append("g")
-      .attr("class", "component")
-    .append("path")
-      .attr("class", "component")
-      .attr("id", function(d, i) {
-        return "component" + i;
-      })
-      .style("fill", function(d, i) {
-        return fill(i); 
-      })
-      .style("stroke", function(d, i) { return fill(i); })
-      .attr("d", d3.svg.arc().innerRadius(innerRadius + rDiff).outerRadius(outerRadius + rDiff).startAngle( function(d, i) {
-        component = data["ci_r"][i];
-        ifaceIndex = component[0];
-        sAngle = d3.select("#interface" + ifaceIndex).datum().startAngle;
-        return sAngle;
-      }).endAngle( function(d, i) {
-        component = data["ci_r"][i];
-        ifaceIndex = component[component.length - 1];
-        eAngle = d3.select("#interface" + ifaceIndex).datum().endAngle;
-        return eAngle;
-      }))
-      .on("mouseover", fade(.1))
-      .on("mouseout", fade(1))
-      .on("mousedown", mousedown);
+  addLayer("component", data["components"], rDiff, data["ci_r"]);
+  addLayer("process", data["processes"], 1.7 * rDiff, data["pi_r"]);
+
   /**
    * Add text label for each interface, component
    * XXX what if the text length could not fit into the chord
    */
-  iface.append("text")
-      .attr("x", 6)
-      .attr("dy", 15)
-    .append("textPath")
-      .attr("xlink:href", function(d, i) { return "#interface" + i; })
-        .text(function(d, i) { return data["interfaces"][i]; })
-        .on("mousedown", mousedown);
+  function addText(selection) {
+    return selection.append("text")
+        .attr("x", 6)
+        .attr("dy", 15)
+      .append("textPath")
+  }
+  // console.log(
   d3.selectAll("g.component")
-    .append("text")
-      .attr("x", 6)
-      .attr("dy", 15)
-    .append("textPath")
-      .attr("xlink:href", function(d, i) { 
-        return "#component" + i;})
-        .text(function(d, i) { return data["components"][i]; })
-        .on("mousedown", mousedown);
+    .call(addText)
+  // );
+    .every(function(d, i) {
+      console.log(i);
+      console.log(d[1]);}) // "every" loops through an array 
+      // d[i].attr("xlink:href", "#interface" + i)
+      //   .text(function(d, i) { return data["interfaces"][i]; })
+      //   .on("mousedown", mousedown);
+      // console.log("shoot");}) // "every" loops through an array 
+  // console.log(
+  // iface.append("text")
+  //     .attr("x", 6)
+  //     .attr("dy", 15)
+  //   .append("textPath")
+  // );
+  //     .attr("xlink:href", function(d, i) { return "#interface" + i; })
+  //       .text(function(d, i) { return data["interfaces"][i]; })
+  //       .on("mousedown", mousedown);
+  // d3.selectAll("g.component")
+  //   .append("text")
+  //     .attr("x", 6)
+  //     .attr("dy", 15)
+  //   .append("textPath")
+  //     .attr("xlink:href", function(d, i) { 
+  //       return "#component" + i;})
+  //       .text(function(d, i) { return data["components"][i]; })
+  //       .on("mousedown", mousedown);
 });
 
 /*
@@ -150,7 +172,7 @@ var width = 900,
     ry = height /2,
     m0,
     rotate = 0,
-    innerRadius = Math.min(width, height) * .36,
+    innerRadius = Math.min(width, height) * .33,
     outerRadius = innerRadius * 1.1,
     rDiff = innerRadius * .22;
 /*
