@@ -2,10 +2,11 @@
     "_comment": 
         "pc_r stands for process-component relation;",
     "matrix": [
-        [ 0, 0, 8916, 0],
-        [ 0, 0, 0, 6171],
-        [ 8916, 0, 0, 0],
-        [ 0, 6171, 0, 0]
+        [ 0, 0, 8916, 0, 0],
+        [ 0, 0, 0, 6171, 0],
+        [ 8916, 0, 0, 0, 0],
+        [ 0, 6171, 0, 0, 0],
+        [ 0, 0, 0, 0, 6171]
     ],
     "processes": [
         "GCM", 
@@ -13,24 +14,27 @@
     ],
     "components": [
         "GCM_MCC", 
-        "MCS"
+        "MCS",
+        "TEST"
     ],
     "interfaces": [
         "InterfaceLCMRequired", 
         "InterfaceLCMProvided",
         "InterfaceGCMProvided", 
-        "InterfaceGCMRequiredForGCM"
+        "InterfaceGCMRequiredForGCM",
+        "InterfaceTest"
     ],
     "pc_r": [
         [0], 
-        [1]
+        [1, 2]
     ],
     "ci_r": [
         [0, 1],
-        [2, 3]
+        [2, 3],
+        [4]
     ],
     "pi_r": [
         [0, 1],
-        [2, 3]
+        [2, 3, 4]
     ]
 }
