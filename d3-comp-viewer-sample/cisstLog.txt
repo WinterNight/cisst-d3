@@ -66,16 +66,16 @@ D- Class mtsCommandQueuedWriteGeneric: Allocate: resizing argument queue to 64 w
 -D Class cmnClassRegister: FindClassServices: found class info for "mtsDescriptionConnectionProxy"
 -W Class cmnDeSerializer: Class information for mtsDescriptionConnectionProxy has already been received
 -D ICE: Network :: attempting to bind to tcp socket :::0
--D ICE: Network :: listening for tcp connections at :::50064
-local interfaces: 10.164.131.232, 127.0.0.1, 0:0:0:0:0:0:0:1
--D ICE: Network :: published endpoints for object adapter `ComponentInterfaceServerAdapter_InterfaceGCMProvidedForConn29':
-tcp -h 10.164.131.232 -p 50064 -t 10000
--D ICE: Network :: accepting tcp connections at :::50064
+-D ICE: Network :: listening for tcp connections at :::41180
+local interfaces: 10.0.0.7, 2601:a:1780:76b:8cfc:a378:1799:49c3, 2601:a:1780:76b:9503:bd7d:9ef9:5f00, 2601:a:1780:76b:863a:4bff:fe5e:cafc, 127.0.0.1, 0:0:0:0:0:0:0:1
+-D ICE: Network :: published endpoints for object adapter `ComponentInterfaceServerAdapter_InterfaceGCMProvidedForConn9':
+tcp -h 10.0.0.7 -p 41180 -t 10000:tcp -h "2601:a:1780:76b:8cfc:a378:1799:49c3" -p 41180 -t 10000:tcp -h "2601:a:1780:76b:9503:bd7d:9ef9:5f00" -p 41180 -t 10000:tcp -h "2601:a:1780:76b:863a:4bff:fe5e:cafc" -p 41180 -t 10000
+-D ICE: Network :: accepting tcp connections at :::41180
 -D ICE: mtsProxyBaseServer :: ICE init - Server proxy initialization success.
 M- osaThread::CreateInternal: create thread named: CIPS0
 -D ICE: mtsComponentInterfaceProxyServer :: proxy server starts
 -D ICE: mtsComponentInterfaceProxyServer :: Send thread starts
--D ICE: mtsComponentProxy :: provided interface proxy starts: InterfaceGCMProvidedForConn29
+-D ICE: mtsComponentProxy :: provided interface proxy starts: InterfaceGCMProvidedForConn9
 -D Class cmnClassRegister: FindClassServices: found class info for "mtsComponentStateChangeProxy"
 D- Class mtsCommandQueuedWriteGeneric: Allocate: resizing argument queue to 64 with "mtsDescriptionComponentProxy"
 D- Class mtsCommandQueuedWriteGeneric: Allocate: resizing argument queue to 64 with "mtsComponentStatusControlProxy"
@@ -90,11 +90,11 @@ M- osaThread::CreateInternal: create thread named: CIPC0
 -D ICE: mtsComponentInterfaceProxyClient :: Send thread starts
 -D ICE: mtsComponentProxy :: required interface proxy starts: InterfaceGCMRequiredForcisstComponentViewer
 -D ICE: Network :: accepted tcp connection
-local address = ::ffff:10.164.131.232:50064
-remote address = ::ffff:10.164.131.232:47212
+local address = ::ffff:10.0.0.7:41180
+remote address = ::ffff:10.0.0.7:50472
 -D ICE: Network :: tcp connection established
-local address = ::ffff:10.164.131.232:50064
-remote address = ::ffff:10.164.131.232:47212
+local address = ::ffff:10.0.0.7:41180
+remote address = ::ffff:10.0.0.7:50472
 -D Class cmnClassRegister: FindClassServices: found class info for "mtsDescriptionComponentProxy"
 -D Class cmnClassRegister: FindClassServices: found class info for "mtsDescriptionConnectionProxy"
 D- Class mtsCommandQueuedWriteGeneric: Allocate: resizing argument queue to 64 with "mtsComponentStatusControlProxy"
@@ -110,35 +110,13 @@ M- osaThread::CreateInternal: create thread named: Unnamed
 M- osaThread::CreateInternal: create thread named: Unnamed
 M- osaThread::CreateInternal: create thread named: Unnamed
 -D Class cmnClassRegister: FindClassServices: found class info for "mtsComponentStateChangeProxy"
-E- File: osaPipeExec.cpp Line: 232 -  Class osaPipeExec: Open: exec failed for pipe "unnamed"
-E- File: osaPipeExec.cpp Line: 74 -  Class osaPipeExec: CloseAllPipes: called for pipe "unnamed"
--E Class mtsComponentViewer: File: mtsComponentViewer.cpp Line: 180 -  Failed to receive response
 -D Class cmnClassRegister: FindClassServices: found class info for "mtsStdStringVecProxy"
 -D Class cmnClassRegister: FindClassServices: found class info for "mtsStdStringVecProxy"
 -D Class cmnClassRegister: FindClassServices: found class info for "mtsComponentStateProxy"
 -D Class cmnClassRegister: FindClassServices: found class info for "mtsDescriptionInterfaceProxy"
 -D Class cmnClassRegister: FindClassServices: found class info for "mtsDescriptionConnectionVecProxy"
--D ICE: Network :: closing tcp connection
-local address = ::ffff:10.164.131.232:50064
-remote address = ::ffff:10.164.131.232:47212
--W ICE: Proxy "GCM.MCSProxyOncisstComponentViewer" detected CLIENT DISCONNECTION: client id [ 29 ], Ice connection id="9D4FDD84-FC6F-411A-B7C6-BF2B77505F1D"
-Outgoing.cpp:227: Ice::TimeoutException:
-timeout while sending or receiving data
--W ICE: mtsComponentInterfaceProxyServer: COMP.INT.SERVER detected COMP.INT.CLIENT DISCONNECTION: "29"
--M ICE: mtsComponentInterfaceProxyServer: OnClientDisconnect: requested disconnection, connection id [ 29 ]
-
--M ICE: mtsComponentInterfaceProxyClient: refresh failed (InterfaceCommunicator -t -e 1.1:tcp -h 10.164.131.232 -p 38017 -t 10000)
-ConnectionI.cpp:402: Ice::CommunicatorDestroyedException:
-communicator object destroyed
--M ICE: mtsManagerProxyClient: mtsComponentInterfaceProxyClient::ComponentInterfaceClientI - terminated
--D ICE: mtsProxyBaseClient :: Proxy client clean-up success
--E Class mtsManagerLocal: File: mtsManagerLocal.cpp Line: 2170 -  Disconnect: disconnection request failed: "cisstComponentViewer:GCM.MCSProxy:InterfaceGCMRequiredForcisstComponentViewer - cisstComponentViewer:cisstComponentViewer_MCC:InterfaceLCMProvided[InterfaceGCMRequiredForcisstComponentViewer]
--E Class mtsComponentProxy: File: mtsComponent.cpp Line: 447 -  RemoveInterfaceRequired: failed to remove required interface "InterfaceGCMRequiredForcisstComponentViewer", failed to disconnect interfaces: GCM.MCSProxy:InterfaceGCMRequiredForcisstComponentViewer - cisstComponentViewer_MCC:InterfaceLCMProvided[InterfaceGCMRequiredForcisstComponentViewer]
-E- Class mtsComponentProxy: File: mtsComponentProxy.cpp Line: 268 -  RemoveInterfaceRequiredProxy: failed to remove required interface proxy: InterfaceGCMRequiredForcisstComponentViewer
-E- Class mtsManagerLocal: File: mtsManagerLocal.cpp Line: 2757 -  RemoveInterfaceRequiredProxy: failed to remove required interface proxy: InterfaceGCMRequiredForcisstComponentViewer
-E- Class mtsManagerLocal: File: mtsManagerLocal.cpp Line: 2751 -  RemoveInterfaceRequiredProxy: non-proxy component: cisstComponentViewer_MCC
 -D ICE: mtsManagerProxyClient :: proxy client terminates
 -D ICE: mtsProxyBaseClient :: Proxy client clean-up success
 -E File: osaThread.cpp Line: 321 -  File: osaThread.cpp Line: 321 - pthread_join failed. Invalid argument: 22
--W Class mtsComponentViewer: -WExited
- Class 
+-W Class mtsComponentViewer: Exited
+-W Class mtsComponent: Exited
