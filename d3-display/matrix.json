@@ -9,8 +9,21 @@
         [ 0, 0, 0, 0, 6171]
     ],
     "processes": [
-        "GCM", 
-        "CisstComponentViewer"
+      {
+        "GCM" : [
+          {
+            "GCM_MCC" : ["InterfaceLCMRequired", "InterfaceLCMProvided"]
+          }
+        ] 
+      },
+      {
+        "CisstComponentViewer" : [
+          {
+            "MCS" : ["InterfaceGCMProvided"],
+            "TEST" : ["InterfaceTest"]
+          }
+        ]
+      }
     ],
     "components": [
         "GCM_MCC", 

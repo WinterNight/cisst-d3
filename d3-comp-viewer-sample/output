@@ -54,7 +54,7 @@ Connections:	GCM
 	cisstComponentViewer
 ###### ComponentViewerD3: ChangeStateHandler
 ###### ComponentViewerD3: ChangeStateHandler
-###### ComponentViewerD3: ChangeStateHandler
+##### ComponentViewerD3: ChangeStateHandler
 ###### ComponentViewerD3::ProcessResponse
 ###### ComponentViewerD3::Run
 ###### ComponentViewerD3::ProcessResponse
@@ -100,6 +100,3 @@ Connections:	GCM
 Quitting ...
 -E File: osaThread.cpp Line: 321 -  File: osaThread.cpp Line: 321 - pthread_join failed. Invalid argument: 22
 -W Class mtsComponentViewer: Exited
--W Class mtsComponent: Exited
-Closing ...
-parser cleanup ................###### ComponentViewerD3::Cleanup
