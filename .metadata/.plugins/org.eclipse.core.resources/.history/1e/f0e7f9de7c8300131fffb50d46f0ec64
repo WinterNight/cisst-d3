@@ -1,0 +1,8 @@
+using namespace std;
+class Interface
+{
+  private:
+    string name;
+  public:
+    Interface(string);
+}

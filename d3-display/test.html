@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
+<script>
+d3.json("test.json", function(error, data) {
+  console.log("hello");
+  if (!data) return "null data";
+  console.log("hello");
+  if (error) return console.warn(error);
+
+  var process = data["processes"];
+  console.log("hello");
+});
+</script>

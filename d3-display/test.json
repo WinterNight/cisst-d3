@@ -1,0 +1,18 @@
+{
+  "processes": {
+    "GCM" : {
+      "GCM_MCC" : [
+        "InterfaceLCMRequired", 
+        "InterfaceLCMProvided"
+      ]
+    }, 
+    "CisstComponentViewer" : {
+      "MCS" : [
+        "InterfaceGCMProvided"
+      ],
+      "TEST" : [
+        "InterfaceTest"
+      ]
+    }
+  }
+}
