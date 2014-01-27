@@ -31,15 +31,22 @@ d3.json("matrix_internal.json", function(error, data) {
   if (error) return console.warn(error);
 
   var matrix = data["matrix"];
-  var chord = d3.layout.chord()
+  var lMap = {"interface" : 2, "component" : 1, "process" : 0};
+  var interfaceNames = getNames(data["processes"], lMap["interface"]);
+  var componentNames = getNames(data["processes"], lMap["component"]);
+  var processNames   = getNames(data["processes"], lMap["process"]);
+  var names = {"interface" : interfaceNames, "component" : componentNames, "process" : processNames};
+
+  var connection = d3.layout.chord()
       .padding(.05) // padding is the gap width between two arcs
       .sortSubgroups(d3.descending)
       .matrix(matrix);
+
   /**
    * Add a group per neighborhood
    */
   var iface = svg.selectAll(".interface")
-      .data(chord.groups)
+      .data(connection.groups)
     .enter().append("g")
       .attr("class", "interface")
       .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
@@ -47,32 +54,40 @@ d3.json("matrix_internal.json", function(error, data) {
       .on("mouseout", fade(1));
   /**
    * Add the group arc
-   * Problem 1: Because iface data comes from matrix, no associated interface names.
+   * Problem 1: Because iface data comes from matrix, no associated interface names. (solved by getName data)
    * Problem 2: Interfaces within different components may have same name,
    *            e.g. ExecIn & ExecOut. Thus, interface names could not be
-   *            used as ID directly.
+   *            used as ID directly. (solved by adding component name and 
+   *            process name to interface ids)
    */
-  iface.call(rebind, data["processes"]);
+
   var ifacePath = iface.append("path")
-    // use interface name as the id
-    .attr("id", function(d, i) { 
-      console.log(d); console.log(i); 
-      return "interface" + i;})
+    /**
+     * At first, use interface name as the id.
+     * Then change to class.
+     * (answered) Why do i need to add class or id to path?
+     * Because i need a way to select these path to get data like innerRadius,
+     * and to bind the text.
+     *
+     * (answered) Shall each level add the class itself, or shall each outer level add the class attribute for its inner levels?
+     * For now, I pick the later one.
+     * However, because of problem 2, the first strategy must be used.
+     */
+    .attr("id", function(d, i) {
+      return interfaceNames[i];
+    })
+    .attr("class", function(d, i) {
+      return interfaceNames[i][1] + " " + interfaceNames[i][2];
+    })
       .style("fill", function(d) { return fill(d.index); })
       .style("stroke", function(d) { return fill(d.index); })
       .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
 
   /**
-   * Here is another way to set the interface name
-   * d3.select("#interface3")
-   *   .attr("id", "interface-bla");
-   */
-
-  /**
    * Add ticks
    */
   var ticks = svg.append("g").selectAll("g")
-      .data(chord.groups)
+      .data(connection.groups)
     .enter().append("g").selectAll("g")
       .data(ifaceTicks)
     .enter().append("g")
@@ -81,10 +96,8 @@ d3.json("matrix_internal.json", function(error, data) {
             + "translate(" + outerRadius + ",0)";
       });
   ticks.append("line")
-      .attr("x1", 1)
-      .attr("y1", 0)
-      .attr("x2", 5)
-      .attr("y2", 0)
+      .attr("x1", 1).attr("y1", 0)
+      .attr("x2", 5).attr("y2", 0)
       .style("stroke", "#000");
   ticks.append("text")
       .attr("x", 8)
@@ -98,7 +111,7 @@ d3.json("matrix_internal.json", function(error, data) {
   svg.append("g")
       .attr("class", "chord")
     .selectAll("path")
-      .data(chord.chords)
+      .data(connection.chords)
     .enter().append("path")
       .attr("d", d3.svg.chord().radius(innerRadius))
       .style("fill", function(d) { return fill(d.target.index); })
@@ -109,7 +122,7 @@ d3.json("matrix_internal.json", function(error, data) {
    *
    * XXX http://stackoverflow.com/questions/14378879/how-can-i-get-the-startangle-and-endangle-of-each-arc-in-the-sunburst-example-us
    */
-  function addLayer(layer, data, rGap, dataRelat) {
+  function addLayer(layer, data, rGap) {
 
     ifaceLastIndex = []
 
@@ -117,64 +130,46 @@ d3.json("matrix_internal.json", function(error, data) {
       svg.selectAll("." + layer)
         .data(data)
         .enter().append("g")
-          .attr("class", layer)
+        .attr("class", layer);
 
     var layerPaths = layerGroup
       .append("path")
-        .attr("id", function(d, i) { return layer + i; })
+      .attr("id", function(d, i) { return data[i]; })
         .style("fill", function(d, i) { return fill(i); })
         .style("stroke", function(d, i) {return fill(i); })
         .attr("d", d3.svg.arc()
           .innerRadius(innerRadius + rGap)
           .outerRadius(outerRadius + rGap)
           .startAngle(function(d, i) {
-            outerLayer = dataRelat[i];
-            innerLayerIndex = outerLayer[0];
-            sAngle = d3.select("#interface" + innerLayerIndex).datum().startAngle;
+
+            var t = d3.selectAll(".interface ." + d[0]).data();
+            sAngle = t[0].startAngle;
+
             return sAngle;
-          }).endAngle( function(d, i) {
-            outerLayer = dataRelat[i];
-            innerLayerIndex = outerLayer[outerLayer.length - 1];
-            ifaceLastIndex.push(innerLayerIndex)
-            eAngle = d3.select("#interface" + innerLayerIndex).datum().endAngle;
+          }).endAngle(function(d, i) {
+
+            var t = d3.selectAll(".interface ." + d[0]).data();
+            eAngle = t[t.length - 1].endAngle;
+
             return eAngle;
-        }))
-      
-    d3.selectAll("." + layer + " path")
-      .select(function(d, layerIndex) {
-        /*
-         * @var ifaceLastIndex
-         * each component has [a, ..., z] interfaces, collect all the zth interfaces into ifaceLastIndex array, the ith element corresponds to the ith component 
-         */
-        relat = ifaceLastIndex[layerIndex];
-        d3.selectAll(".interface")
-          .classed(layer + layerIndex, function(d, i) {
-            return dataRelat[layerIndex][0] <= i && i <= relat;
-          })
-      });
+        }));
 
     layerGroup
       .on("mouseover", function(d, index) { // d is the name of layer
 
         var temp = []
-        d3.selectAll("." + layer + index + " path")
+        d3.selectAll("." + names[layer][index])
           .select(function(d) {
-            temp.push(d.index)
-          })
-        // console.log(layer + " " + index)
-        // console.log("temp:")
-        // console.log(temp)
+            temp.push(d.index);
+          });
 
         svg.selectAll(".chord path")
           .filter(function(data) {
-            // console.log(data.source.index + " " + data.target.index)
             for (i in temp) {
               if (data.source.index == temp[i] || data.target.index == temp[i]) {
-                // console.log(i + " false")
                 return false;
               } 
             }
-            // console.log("true")
             return true;
           })
           .transition()
@@ -183,42 +178,33 @@ d3.json("matrix_internal.json", function(error, data) {
       .on("mouseout", function() {
         svg.selectAll(".chord path")
           .transition()
-            .style("opacity", 1);
-      })
+          .style("opacity", 1);
+      });
     }
 
-  addLayer("component", data["components"], rDiff, data["ci_r"]);
-  // addLayer("process", data["processes"], 1.7 * rDiff, data["pi_r"]);
+  addLayer("component", componentNames, rDiff);
+  addLayer("process", processNames, 1.7 * rDiff);
 
   /**
-   * Add text label for each process, component
+   * Add text label for each process, component and interface
    * XXX what if the text length could not fit into the chord
    */
-  function addText(selection) {
-    return selection.append("text")
+  function addText(selection, data) {
+    selection
+      .append("text")
         .attr("x", 6)
         .attr("dy", 15)
       .append("textPath")
+        .attr("xlink:href", function(d, i) {
+          return "#" + data[i];
+        })
+        .text(function(d, i) {
+          return data[i][0];
+        });
   }
-  var componentSelection = addText(d3.selectAll("g.component"));
-  var componentData = componentSelection.data();
-  componentSelection
-      .attr("xlink:href", function(d, i) { return "#component" + i; })
-      .text(function(d, i) { 
-        return componentData[i]; })
-  var processSelection = addText(d3.selectAll("g.process"));
-  var processData = processSelection.data();
-  processSelection
-      .attr("xlink:href", function(d, i) { return "#process" + i; })
-      .text(function(d, i) { 
-        return processData[i]; })
-  /**
-   * Add text label for each interface
-   */
-  addText(iface)
-      .attr("xlink:href", function(d, i) { return "#interface" + i; })
-      .text(function(d, i) { 
-        return data["interfaces"][i]; })
+  addText(d3.selectAll("g.component"), componentNames);
+  addText(d3.selectAll("g.process"), processNames);
+  addText(iface, interfaceNames);
 
 });
 
@@ -284,10 +270,6 @@ function mouseover(opacity) {
   return function(g, i) {
     svg.selectAll(".chord path")
         .filter(function(d) {
-          <!-- console.log(d); -->
-          // console.log(d.source);
-          // console.log(d.source.index);
-          // console.log(d.target.index);
           return d.source.index != i && d.target.index != i; })
       .transition()
         .style("opacity", opacity);
@@ -341,28 +323,26 @@ function dot(a, b) {
 }
 
 /**
- * Rebind data
+ * getNames : get level names from a nested data structure
+ * @param {array} outer is data["processes"]
+ * @return all the interfaces.
  */
-function rebind(obj, data) {
+function getNames(outer, level) {
   var res = [];
-  for (var i = 0; i < data.length; i++)
-  {
-    var process = data[i];
-    $.each(process, function(processName, componentList) {
-      for (var j = 0; j < componentList.length; j++)
-      {
-        var component = componentList[j];
-        $.each(component, function(componentName, interfaceList) {
-          for (var k = 0; k < interfaceList.length; k++)
-          {
-            res.push(interfaceList[k]);
-          }
-        })
+
+  $.each(outer, function(outerName, inner) {
+    if (level == 0) {
+      res.push([outerName]);
+    } else {
+      var oneRes = getNames(inner, level - 1);
+      for (var i = 0; i < oneRes.length; i++) {
+        oneRes[i].push(outerName);
+        res.push(oneRes[i]);
       }
-    })
-  }
-  console.log(res);
-  var existing = obj.data(res);
-  existing.exit().remove();
+    }
+  });
+  
+  return res;
 }
+
 </script>
