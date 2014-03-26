@@ -1,10 +1,18 @@
-#include <Interface.h>
+#include "Interface.h"
+#include <iostream>
+#include <string>
+#include <map>
 
-class Component 
+#ifndef _Component_h
+#define _Component_h
+
+using namespace std;
+class Component : virtual public Layer
 {
-  private:
-    Interface[] interfaces;
-    string name;
   public:
-    Component(string c_name);
-}
+    Component();
+    Component(string cName, string isInternal);
+    virtual string ToString();
+    virtual void SetIndent(int it);
+};
+#endif

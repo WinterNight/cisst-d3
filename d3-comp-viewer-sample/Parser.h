@@ -1,28 +1,27 @@
 // #ifndef _Parser_h
 // #define _Parser_h
 
-// #include <iostream>
 #include <fstream>
-#include <stack>
-using namespace std;
+#include <map>
+#include "Process.h"
 
-class Parser
+using namespace std;
+class Parser : virtual public Layer
 {
 private:
+    int interfaceID = 0;
     ofstream outputFile;
-    stack<string> outputStack; // close parenthesis are pushed onto stack
-    int level;
 public:
     Parser(string s);
-    void Push(string elem);
-    string Pop(void);
-    void Write(string s);
-    string GetIndentation();
+    string ProcessToString();
+    string MatrixToString();
+    virtual string ToString();
+    string WriteIndent();
     void CloseFile(void);
-    void ParseProcess(string s);
-    void ParseComponent(string s);
-    void ParseInterface(string s);
-    void ParseConnection(string s);
-    // void FlushStack(); // write close parentheses 
-    string PeekStackTop();
+    void Write();
+    int GetInterfaceID();
+    void ParseConnection(string clientProcess, string clientComponent, string clientInterface, 
+                         string serverProcess, string serverComponent, string serverInterface);
+
+    virtual void SetIndent(int it);
 };

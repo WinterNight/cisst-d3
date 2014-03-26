@@ -2,126 +2,115 @@
 #include "Parser.h"
 #include <string>
 
-using namespace std;
-
 Parser::Parser(string s)
 {
-    level = 0;
+    indent = 0;
     outputFile.open(s.c_str());
-    ParseProcess("root");
 }
 
-void Parser::Push(string elem)
+string Parser::ProcessToString()
 {
-    level ++; // XXX not all the push increase level
-    outputStack.push(elem);
+  string ret = "";
+  ret += WriteIndent() + "\"" + "processes" + "\"" + ": {\n";
+
+  // indentation should be incresed
+  ret += InnersToString();
+
+  // indentation should be decresed
+  ret += "\n" + WriteIndent() + "}";
+  return ret;
 }
 
-string Parser::Pop(void)
+string Parser::MatrixToString()
 {
-    try
-    {
-        if (outputStack.empty())
-            throw "Cann't pop from empty stack.";
-        else
-        {
-            level --;
-            string temp_top = PeekStackTop();
-            outputStack.pop();
-            return temp_top;
-        }
-    }
-    catch (string e)
-    {
-        cout << e << endl;
-    }
 }
 
-void Parser::Write(string s)
+string Parser::ToString()
 {
-    // First, write indentation.
-    outputFile << GetIndentation();
-    outputFile << s ;
+  string ret;
+  ret += WriteIndent() + "{\n";
+  // indentation should be increased
+  IncreaseIndent();
+  // ret += MatrixToString();
+  ret += ",\n";
+
+  SetIndent(indent);
+  ret += ProcessToString(); 
+  // indentation should be decreased
+  DecreaseIndent();
+  ret += "\n" + WriteIndent() + "}";
+
+  return ret;
 }
 
-string Parser::GetIndentation()
+void Parser::SetIndent(int i) {
+  for (map<string, Layer*>::iterator it = inners.begin(); it != inners.end(); it++) {
+    it->second->SetIndent(indent);
+  }
+}
+
+string Parser::WriteIndent()
 {
-    int temp_level = level;
-    string indent = "";
-    while (temp_level > 0)
-    {
-        indent += "\t";
-        temp_level --;
-    }
-    return indent;
+  string ret = "";
+  for (int i = 0; i < indent; i++) {
+    ret += "  ";
+  }
+  return ret;
 }
 
 void Parser::CloseFile(void)
 {
     std::cout << "Closing ..." << std::endl;
-    // FlushStack
-    while (!outputStack.empty())
-    {
-        Write(Pop());
-    }
     outputFile.close();
 }
 
-void Parser::ParseProcess(string s)
+void Parser::Write()
 {
-    std::cout << "within parsing process ..." << std::endl;
-    // if (!outputStack.empty() && level > 2)
-    // {
-    //     FlushStack();
-    //     Write(",\n");
-    // }
-    if (level > 2)
-    {
-        while (!outputStack.empty() && level > 3) 
-        {
-            Write(Pop());
-        }
-        Write(Pop() + ",\n");
-    }
-    // outputFile << "level: " << level << endl;
-    Write("{\n");
-    Push("}");
-    Write("\"name\": \"" + s + "\",\n");
-    Write("\"children\": [\n");
-    Push("\n" + GetIndentation() + "]\n"); // XXX fake
+  std::cout << ToString();
 }
 
-void Parser::ParseComponent(string s)
-{
-    if (PeekStackTop() == "}") 
-    { 
-        // meaning this is not the first component, and a comma is need
-        Write(Pop() + ",\n");
-    }
-    Write("{\n");
-    Push("}"); 
-    Write("\"name\": \"" + s + "\",\n");
-    Write("\"size\": 1006\n");
+int Parser::GetInterfaceID() {
+  interfaceID++;
+  return interfaceID - 1;
 }
 
-void Parser::ParseInterface(string s)
-{
+void Parser::ParseConnection(string clientProcess, string clientComponent, string clientInterface,
+                             string serverProcess, string serverComponent, string serverInterface) {
+
+  cout << "test core dump ......." << endl;
+  Layer *p1, *c1, *i1;
+  Layer *p2, *c2, *i2;
+  // Layer *p1 =     FindInnerElement(clientProcess);
+  // Layer *c1 = p1->FindInnerElement(clientComponent);
+  // Layer *i1 = c1->FindInnerElement(clientInterface);
+  p1 = FindInnerElement(clientProcess);
+  if (p1 != NULL) {
+    c1 = p1->FindInnerElement(clientComponent);
+  } else {
+    cout << "missing process....." << clientProcess << endl;
+  }
+  if (c1 != NULL) {
+    i1 = c1->FindInnerElement(clientInterface);
+  } else {
+    cout << "missing component....." << clientComponent << endl;
+  }
+
+  // Layer *p2 =     FindInnerElement(serverProcess);
+  // Layer *c2 = p2->FindInnerElement(serverComponent);
+  // Layer *i2 = c2->FindInnerElement(serverInterface);
+  p2 = FindInnerElement(serverProcess);
+  if (p2 != NULL) {
+    c2 = p2->FindInnerElement(serverComponent);
+  } else {
+    cout << "missing process....." << serverProcess << endl;
+  }
+  if (c2 != NULL) {
+    i2 = c2->FindInnerElement(serverInterface);
+  } else {
+    cout << "missing component....." << serverComponent << endl;
+  }
+
+  // i1->AddConnection(i2->GetInterfaceID());
+  // i2->AddConnection(i1->GetInterfaceID());
 }
 
-void Parser::ParseConnection(string s)
-{
-  std::cout << "\t" << s << std::endl;
-}
-// a square bracket and a curly bracket left on the stack.
-// void Parser::FlushStack()
-// {
-//     while (!outputStack.empty())
-//     {
-//         Write(Pop());
-//     }
-// }
-
-string Parser::PeekStackTop()
-{
-    return outputStack.top();
-}

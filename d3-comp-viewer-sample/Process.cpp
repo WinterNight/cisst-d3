@@ -1,26 +1,25 @@
-#include "Component.h"
+#include "Process.h"
 
-Component::Component()
+Process::Process()
 {
 }
 
-Component::Component(string cName, string isInternal)
+Process::Process(string pName) 
 {
-  name = cName;
-  internal = isInternal;
+  name = pName;
+  internal = "false";
 }
 
-string Component::ToString() 
+string Process::ToString()
 {
   string res;
   res += WriteIndent() + "\"" + name + "\" : {\n";
   // indentation should be increased
   IncreaseIndent();
-  res += WriteIndent() + "\"" + "internal" + "\"" +  " : " + internal + ",\n";
-  res += WriteIndent() + "\"" + "data"     + "\"" +  " : {\n";
+  res += WriteIndent() + "\"" + "internal" + "\"" + " : " + internal + ",\n";
+  res += WriteIndent() + "\"" + "data"     + "\"" + " : {\n"; 
 
   res += InnersToString();
-
   // indentation should be decreased
   res += "\n" + WriteIndent() + "}";
   DecreaseIndent();
@@ -28,10 +27,9 @@ string Component::ToString()
   return res;
 }
 
-void Component::SetIndent(int i)
+void Process::SetIndent(int i)
 {
-  indent = i + 2;
-  
+  indent = i + 1;
   for (map<string, Layer*>::iterator it = inners.begin(); it != inners.end(); it++) {
     it->second->SetIndent(indent);
   }

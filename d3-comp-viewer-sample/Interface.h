@@ -1,13 +1,27 @@
+/**
+ * Indentation is hard coded.
+ */
+#include "Layer.h"
+#include <iostream>
+#include <string>
 #include <fstream>
-using namespace std;
+#include <vector>
 
-#define INTERNAL 0;
-#define NONINTERNAL 1;
-class Interface
+#ifndef _Interface_h
+#define _Interface_h
+
+using namespace std;
+class Interface : virtual public Layer
 {
   private:
-    string name;
-    int type;
+    int id;
+    vector<int> connections;
   public:
-    Interface(string i_name);
+    Interface();
+    Interface(string iName, string isInternal, int interfaceID);
+    virtual string ToString();
+    virtual void SetIndent(int it);
+    void AddConnection(int interfaceID);
+    int GetInterfaceID();
 };
+#endif // Interface_h

@@ -6,6 +6,9 @@
 
 #include <cisstMultiTask/mtsComponentViewer.h>
 #include "Parser.h"
+#include "Process.h"
+#include "Component.h"
+#include "Interface.h"
 
 class ComponentViewerD3 : public mtsComponentViewer
 {

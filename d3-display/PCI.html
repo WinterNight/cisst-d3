@@ -15,14 +15,21 @@ body {
 </style>
 <body>
   <form>
-    <label><input type="radio" name="mode" value="internal on"> internal on</label>
-    <label><input type="radio" name="mode" value="internal off">internal off</label>
+    <label><input type="radio" name="mode" id="internal-on" checked=true> internal on</label>
+    <label><input type="radio" name="mode" id="internal-off">internal off</label>
   </form>
 </body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
 
+$('#internal-on').click(function () {
+    svg.selectAll(".internal")
+      //   .filter(function(d) {
+      //     return d.source.index != i && d.target.index != i; })
+      // .transition()
+        .style("opacity", 0.1);
+});
 /**
  * load matrx.json
  */
@@ -31,10 +38,16 @@ d3.json("matrix_internal.json", function(error, data) {
   if (error) return console.warn(error);
 
   var matrix = data["matrix"];
-  var lMap = {"interface" : 2, "component" : 1, "process" : 0};
-  var interfaceNames = getNames(data["processes"], lMap["interface"]);
-  var componentNames = getNames(data["processes"], lMap["component"]);
-  var processNames   = getNames(data["processes"], lMap["process"]);
+  var levelMap = {"interface" : 2, "component" : 1, "process" : 0};
+  var tmpI = getNames(data["processes"], levelMap["interface"]);
+  var tmpC = getNames(data["processes"], levelMap["component"]);
+  var tmpP = getNames(data["processes"], levelMap["process"]);
+  var interfaceNames = tmpI["names"];
+  var componentNames = tmpC["names"];
+  var processNames   = tmpP["names"];
+  var interfaceInternals = tmpI["internal"];
+  var componentInternals = tmpC["internal"];
+  var processInternals   = tmpP["internal"];
   var names = {"interface" : interfaceNames, "component" : componentNames, "process" : processNames};
 
   var connection = d3.layout.chord()
@@ -48,7 +61,10 @@ d3.json("matrix_internal.json", function(error, data) {
   var iface = svg.selectAll(".interface")
       .data(connection.groups)
     .enter().append("g")
-      .attr("class", "interface")
+      .attr("class", function(d, i){ 
+        return "interface" + " " + 
+          (interfaceInternals[i] == true ? "internal" : "external");
+      })
       .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
       .on("mouseover", fade(.1))
       .on("mouseout", fade(1));
@@ -57,8 +73,8 @@ d3.json("matrix_internal.json", function(error, data) {
    * Problem 1: Because iface data comes from matrix, no associated interface names. (solved by getName data)
    * Problem 2: Interfaces within different components may have same name,
    *            e.g. ExecIn & ExecOut. Thus, interface names could not be
-   *            used as ID directly. (solved by adding component name and 
-   *            process name to interface ids)
+   *            used as ID directly. 
+   *            (solved by adding component name and process name to interface ids)
    */
 
   var ifacePath = iface.append("path")
@@ -122,7 +138,7 @@ d3.json("matrix_internal.json", function(error, data) {
    *
    * XXX http://stackoverflow.com/questions/14378879/how-can-i-get-the-startangle-and-endangle-of-each-arc-in-the-sunburst-example-us
    */
-  function addLayer(layer, data, rGap) {
+  function addLayer(layer, data, internals, rGap) {
 
     ifaceLastIndex = []
 
@@ -130,7 +146,9 @@ d3.json("matrix_internal.json", function(error, data) {
       svg.selectAll("." + layer)
         .data(data)
         .enter().append("g")
-        .attr("class", layer);
+        .attr("class", function(d, i) {
+          return layer + " " + (internals[i] == true ? "internal" : "external");
+        });
 
     var layerPaths = layerGroup
       .append("path")
@@ -182,8 +200,8 @@ d3.json("matrix_internal.json", function(error, data) {
       });
     }
 
-  addLayer("component", componentNames, rDiff);
-  addLayer("process", processNames, 1.7 * rDiff);
+  addLayer("component", componentNames, componentInternals, rDiff);
+  addLayer("process", processNames, processInternals, 1.7 * rDiff);
 
   /**
    * Add text label for each process, component and interface
@@ -323,23 +341,35 @@ function dot(a, b) {
 }
 
 /**
- * getNames : get level names from a nested data structure
+ * get level names from a nested data structure
  * @param {array} outer is data["processes"]
- * @return all the interfaces.
+ * @return 
+ *    level "interface", {"names" : [["interface", "component", "process"], 
+ *                                  ["interface", "component", "process"]], 
+ *                        "internal" : [true, false]}
+ *    level "component", {"names" : [["component", "process"], 
+ *                                  ["component", "process"]],
+ *                        "internal" : [true, false]}
+ *    level "processes", [["process"], ["process"]].
  */
 function getNames(outer, level) {
-  var res = [];
+  var res = new Object();
+  res["names"] = [];
+  res["internal"] = [];
 
   $.each(outer, function(outerName, inner) {
     if (level == 0) {
-      res.push([outerName]);
+      res["names"].push([outerName]);
+      res["internal"].push(inner["internal"]);
     } else {
-      var oneRes = getNames(inner, level - 1);
-      for (var i = 0; i < oneRes.length; i++) {
-        oneRes[i].push(outerName);
-        res.push(oneRes[i]);
-      }
-    }
+      var oneRes = getNames(inner["data"], level - 1);
+      for (var i = 0; i < oneRes["names"].length; i++) {
+        oneRes["names"][i].push(outerName);
+        res["names"].push(oneRes["names"][i]);
+        res["internal"].push(oneRes["internal"][i]);
+      } // end for 
+    } // end if
+
   });
   
   return res;
