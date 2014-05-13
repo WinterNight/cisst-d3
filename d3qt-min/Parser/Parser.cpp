@@ -30,7 +30,6 @@ void Parser::SetupConnections()
     for (int j = 0; j < interfaceSize; j++) {
       connections[i][j] = 0;
     }
-    connections[i][i] = 50;
   }
 }
 
@@ -57,6 +56,17 @@ std::string Parser::ConnectionToString()
       ret += ",\n" + WriteIndent() + "[";
     } else {
       ret += WriteIndent() + "[";
+    }
+
+    int flag = 0; // 0: an interface has no connection with others
+                  // 1: have at least one conneciton
+    for (int k = 0; k < interfaceSize; k++) {
+      if (connections[i][k] != 0) {
+        flag = 1;
+      }
+    }
+    if (flag == 0) {
+      connections[i][i] = 50;
     }
 
     for (int j = 0; j < interfaceSize; j++) {
