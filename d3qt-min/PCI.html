@@ -84,9 +84,9 @@ d3.json("./build/output.json", function(error, data) {
           (interfaceInternals[i] == true ? "internal" : "external");
       })
       .attr("transform", function(d) {
-        return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; });
-      // .on("mouseover", fade(.1))
-      // .on("mouseout", fade(1));
+        return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+      .on("mouseover", fade(.1))
+      .on("mouseout", fade(1));
   /**
    * Add the group arc
    * Problem 1: Because iface data comes from matrix, no associated interface names. (solved by getName data)
@@ -109,16 +109,16 @@ d3.json("./build/output.json", function(error, data) {
      * However, because of problem 2, the first strategy must be used.
      */
     .attr("id", function(d, i) {
-      return interfaceNames[i];
+      return interfaceNames[i][0];
     })
     .attr("class", function(d, i) {
       return interfaceNames[i][1] + " " + interfaceNames[i][2];
     })
       .style("fill", function(d) { return fill(d.index); })
       .style("stroke", function(d) { return fill(d.index); })
-      .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
-      .on("mouseover", fade(.1))
-      .on("mouseout", fade(1));
+      .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius));
+      // .on("mouseover", fade(.1))
+      // .on("mouseout", fade(1));
 
   /**
    * Add ticks
@@ -196,7 +196,6 @@ d3.json("./build/output.json", function(error, data) {
     layerGroup
       .on("mouseover", function(d, index) { // d is the name of layer
 
-        console.log(d);
         $("#detail-li").text(d[0]);
         var temp = []
         d3.selectAll("." + names[layer][index])
@@ -299,11 +298,14 @@ function ifaceTicks(d) {
  */
 function fade(opacity) {
   return function(g, i) {
-    console.log(g);
+    var list = document.getElementsByClassName("interface");
+    var dom = list[i].childNodes;
+    var names = dom[0].getAttribute("id");
+    $("#detail-li").text(names);
+
     svg.selectAll(".chord path")
         .filter(function(d) {
           // var text = 
-  // document.getElementById("detail-li").text();
           return d.source.index != i && d.target.index != i; })
       .transition()
         .style("opacity", opacity);
