@@ -12,7 +12,7 @@ body {
   stroke-width: .5px;
 }
 
-.wrapper-detail {
+.detail-wrapper {
   display: blcok;
   background-color: rgba(190, 215, 53, 0.772549); 
   background-position: initial initial;
@@ -26,9 +26,9 @@ body {
   <form>
     <label><input type="radio" name="mode" id="internal-on" checked=true> internal on</label>
     <label><input type="radio" name="mode" id="internal-off">internal off</label>
-      <aside class="wrapper-detail" >
-      <ul id="detail-info" style="dispaly: block">
-        <li>HAHA</li>
+    <aside class="detail-wrapper" >
+      <ul id="detail-ul" style="dispaly: block">
+        <li id="detail-li">HAHA</li>
       </ul>
     </aside>
   </form>
@@ -38,7 +38,6 @@ body {
 <script>
 
 // var aaa = QtComponent.SayHi();
-// console.log(ret);
 
 // myObject.doSomethingWithWebElement(document.getElementById("someElement"));
 
@@ -84,9 +83,10 @@ d3.json("./build/output.json", function(error, data) {
         return "interface" + " " + 
           (interfaceInternals[i] == true ? "internal" : "external");
       })
-      .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
-      .on("mouseover", fade(.1))
-      .on("mouseout", fade(1));
+      .attr("transform", function(d) {
+        return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; });
+      // .on("mouseover", fade(.1))
+      // .on("mouseout", fade(1));
   /**
    * Add the group arc
    * Problem 1: Because iface data comes from matrix, no associated interface names. (solved by getName data)
@@ -117,6 +117,8 @@ d3.json("./build/output.json", function(error, data) {
       .style("fill", function(d) { return fill(d.index); })
       .style("stroke", function(d) { return fill(d.index); })
       .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
+      .on("mouseover", fade(.1))
+      .on("mouseout", fade(1));
 
   /**
    * Add ticks
@@ -180,9 +182,6 @@ d3.json("./build/output.json", function(error, data) {
           .startAngle(function(d, i) {
 
             var t = d3.selectAll(".interface ." + d).data();
-            console.log(d);
-            console.log(d[0]);
-            console.log(t);
             sAngle = t[0].startAngle;
 
             return sAngle;
@@ -197,6 +196,8 @@ d3.json("./build/output.json", function(error, data) {
     layerGroup
       .on("mouseover", function(d, index) { // d is the name of layer
 
+        console.log(d);
+        $("#detail-li").text(d[0]);
         var temp = []
         d3.selectAll("." + names[layer][index])
           .select(function(d) {
@@ -298,8 +299,11 @@ function ifaceTicks(d) {
  */
 function fade(opacity) {
   return function(g, i) {
+    console.log(g);
     svg.selectAll(".chord path")
         .filter(function(d) {
+          // var text = 
+  // document.getElementById("detail-li").text();
           return d.source.index != i && d.target.index != i; })
       .transition()
         .style("opacity", opacity);
