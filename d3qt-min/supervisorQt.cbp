@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="supervisorQt" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\cisst\;CMake Files\..\..\..\cisst\build\;CMake Files\..\..\..\cisst\build\cisst\;CMake Files\..\..\..\cisst\build\cisst\share\;CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\;CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\..\usr\local\share\cisst-1.0\;CMake Files\..\..\..\..\..\..\usr\local\share\cisst-1.0\cmake\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="supervisorQt">
+         <Option output="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/supervisorQt" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DLIBRARY_NAME_FOR_CISST_REGISTER=&quot;supervisorQt&quot;" />
+            <Add option="-DQT_NO_DEBUG" />
+            <Add option="-DQT_OPENGL_LIB" />
+            <Add option="-DQT_XMLPATTERNS_LIB" />
+            <Add option="-DQT_GUI_LIB" />
+            <Add option="-DQT_XML_LIB" />
+            <Add option="-DQT_CORE_LIB" />
+            <Add option="-DQT_NO_DEBUG" />
+            <Add option="-DQT_OPENGL_LIB" />
+            <Add option="-DQT_XMLPATTERNS_LIB" />
+            <Add option="-DQT_GUI_LIB" />
+            <Add option="-DQT_XML_LIB" />
+            <Add option="-DQT_CORE_LIB" />
+            <Add option="-DQT_NO_DEBUG" />
+            <Add option="-DQT_OPENGL_LIB" />
+            <Add option="-DQT_XMLPATTERNS_LIB" />
+            <Add option="-DQT_GUI_LIB" />
+            <Add option="-DQT_XML_LIB" />
+            <Add option="-DQT_CORE_LIB" />
+            <Add directory="/home/carryon/workspace/cisst/build/cisst/include" />
+            <Add directory="/home/carryon/workspace/cisst/source/cisst" />
+            <Add directory="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min" />
+            <Add directory="/usr/include/Ice" />
+            <Add directory="/usr/include/qt4" />
+            <Add directory="/usr/include/qt4/QtCore" />
+            <Add directory="/usr/include/qt4/QtGui" />
+            <Add directory="/usr/include/qt4/QtOpenGL" />
+            <Add directory="/usr/include/qt4/QtXml" />
+            <Add directory="/usr/include/qt4/QtXmlPatterns" />
+            <Add directory="/usr/share/Ice-3.3.0/slice" />
+            <Add directory="/usr/share/Ice-3.3.1/slice" />
+            <Add directory="/usr/share/Ice-3.4.0/slice" />
+            <Add directory="/usr/share/Ice-3.4.1/slice" />
+            <Add directory="/usr/share/Ice-3.5.0/slice" />
+            <Add directory="/usr/share/Ice/slice" />
+            <Add directory="/usr/share/ice/slice" />
+            <Add directory="/usr/share/slice" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 supervisorQt" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="supervisorQt/fast">
+         <Option output="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/supervisorQt" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DLIBRARY_NAME_FOR_CISST_REGISTER=&quot;supervisorQt&quot;" />
+            <Add option="-DQT_NO_DEBUG" />
+            <Add option="-DQT_OPENGL_LIB" />
+            <Add option="-DQT_XMLPATTERNS_LIB" />
+            <Add option="-DQT_GUI_LIB" />
+            <Add option="-DQT_XML_LIB" />
+            <Add option="-DQT_CORE_LIB" />
+            <Add option="-DQT_NO_DEBUG" />
+            <Add option="-DQT_OPENGL_LIB" />
+            <Add option="-DQT_XMLPATTERNS_LIB" />
+            <Add option="-DQT_GUI_LIB" />
+            <Add option="-DQT_XML_LIB" />
+            <Add option="-DQT_CORE_LIB" />
+            <Add option="-DQT_NO_DEBUG" />
+            <Add option="-DQT_OPENGL_LIB" />
+            <Add option="-DQT_XMLPATTERNS_LIB" />
+            <Add option="-DQT_GUI_LIB" />
+            <Add option="-DQT_XML_LIB" />
+            <Add option="-DQT_CORE_LIB" />
+            <Add directory="/home/carryon/workspace/cisst/build/cisst/include" />
+            <Add directory="/home/carryon/workspace/cisst/source/cisst" />
+            <Add directory="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min" />
+            <Add directory="/usr/include/Ice" />
+            <Add directory="/usr/include/qt4" />
+            <Add directory="/usr/include/qt4/QtCore" />
+            <Add directory="/usr/include/qt4/QtGui" />
+            <Add directory="/usr/include/qt4/QtOpenGL" />
+            <Add directory="/usr/include/qt4/QtXml" />
+            <Add directory="/usr/include/qt4/QtXmlPatterns" />
+            <Add directory="/usr/share/Ice-3.3.0/slice" />
+            <Add directory="/usr/share/Ice-3.3.1/slice" />
+            <Add directory="/usr/share/Ice-3.4.0/slice" />
+            <Add directory="/usr/share/Ice-3.4.1/slice" />
+            <Add directory="/usr/share/Ice-3.5.0/slice" />
+            <Add directory="/usr/share/Ice/slice" />
+            <Add directory="/usr/share/ice/slice" />
+            <Add directory="/usr/share/slice" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 supervisorQt/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Parser/Component.cpp">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Parser/Interface.cpp">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Parser/Layer.cpp">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Parser/Parser.cpp">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Parser/Process.cpp">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/main.cpp">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/supervisorQtComponent.cpp">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Parser/Component.h">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Parser/Interface.h">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Parser/Layer.h">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Parser/Parser.h">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/Parser/Process.h">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/supervisorQtComponent.h">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/supervisorQtWidget.ui">
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/cisst-config.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMacros.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonThreads.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonQtInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtQt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstVectorInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstVectorExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOpenGLExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOpenGLOpenGL.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionDL.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionrt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskZeroCIce.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskQtInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtQt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtQt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonThreads.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonQtInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtQt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstVectorInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstVectorExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOpenGLExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOpenGLOpenGL.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionDL.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionrt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskZeroCIce.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskQtInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtQt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtQt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonThreads.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonQtInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstCommonQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtQt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstVectorInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstVectorExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOpenGLExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOpenGLOpenGL.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionDL.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOSAbstractionrt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskZeroCIce.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskQtInternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstMultiTaskQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtQt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtQt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtQt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOpenGLExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstOpenGLOpenGL.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtBuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtExternal.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../cisst/build/cisst/share/cisst-1.0/cmake/cisstQtQt.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\cisst\build\cisst\share\cisst-1.0\cmake\" />
+      </Unit>
+      <Unit filename="/home/carryon/workspace/independent_study/cisst-d3/d3qt-min/../../../../../../usr/local/share/cisst-1.0/cmake/Usecisst.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\cisst-1.0\cmake\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

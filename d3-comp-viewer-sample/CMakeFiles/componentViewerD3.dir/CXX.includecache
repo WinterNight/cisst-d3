@@ -260,12 +260,6 @@ cisstCommon/cmnDeSerializer.h
 cisstCommon/cmnExport.h
 -
 
-/home/carryon/workspace/cisst/source/cisst/cisstCommon/cmnGetChar.h
-cisstCommon/cmnPortability.h
--
-cisstCommon/cmnExport.h
--
-
 /home/carryon/workspace/cisst/source/cisst/cisstCommon/cmnLODMultiplexerStreambuf.h
 cisstCommon/cmnForwardDeclarations.h
 -
@@ -1872,10 +1866,6 @@ iterator
 cisstVector/vctContainerTraits.h
 -
 
-/home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Component.cpp
-Component.h
-/home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Component.h
-
 /home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Component.h
 Interface.h
 /home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Interface.h
@@ -1906,10 +1896,6 @@ Component.h
 Interface.h
 /home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Interface.h
 
-/home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Interface.cpp
-Interface.h
-/home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Interface.h
-
 /home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Interface.h
 Layer.h
 /home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Layer.h
@@ -1923,17 +1909,11 @@ vector
 -
 
 /home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Layer.h
+iostream
+-
 string
 -
 map
--
-
-/home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Parser.cpp
-iostream
--
-Parser.h
-/home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Parser.h
-string
 -
 
 /home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Parser.h
@@ -1941,10 +1921,6 @@ fstream
 -
 map
 -
-Process.h
-/home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Process.h
-
-/home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Process.cpp
 Process.h
 /home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/Process.h
 
@@ -1956,21 +1932,5 @@ Component.h
 iostream
 -
 string
--
-
-/home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/main.cpp
-cisstCommon/cmnPortability.h
--
-cisstCommon/cmnLogger.h
--
-cisstCommon/cmnGetChar.h
--
-cisstMultiTask/mtsManagerGlobal.h
--
-cisstMultiTask/mtsManagerLocal.h
--
-ComponentViewerD3.h
-/home/carryon/workspace/independent_study/cisst-d3/d3-comp-viewer-sample/ComponentViewerD3.h
-sys/mman.h
 -
 

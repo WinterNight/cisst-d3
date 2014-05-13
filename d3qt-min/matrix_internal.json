@@ -1,0 +1,50 @@
+{
+  "_comment": 
+    "Nested processes, components and interfaces because this way is easier for parser to generate.Interfaces are out alone because we need to give the arc an id first. Be careful with JSON file!! A comma could be a bug.",
+  "matrix": [
+    [ 0, 0, 8000, 0],
+    [ 0, 0, 9160, 0],
+    [ 8000, 9160, 0, 0],
+    [ 0, 0, 0, 6171]
+  ],
+  "processes": {
+    "GCM" : {
+      "internal" : false,
+      "data" : {
+        "GCM_MCC" : {
+          "internal" : true,
+          "data" : {
+            "InterfaceLCMRequired" : {
+              "internal" : true
+            },
+            "InterfaceLCMProvided" : {
+              "internal" : true 
+            }
+          }
+        }
+      }
+    },
+    "CisstComponentViewer" : {
+      "internal" : false,
+      "data" : {
+        "MCS" : {
+          "internal" : true,
+          "data" : {
+            "InterfaceGCMProvided" : {
+              "internal" : true
+            }
+          }
+        },
+        "TEST" : {
+          "internal" : true,
+          "data" : {
+            "InterfaceTest" : {
+              "internal" : false
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

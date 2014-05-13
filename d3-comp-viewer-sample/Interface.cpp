@@ -4,16 +4,16 @@ Interface::Interface()
 {
 }
 
-Interface::Interface(string iName, string isInternal, int interfaceID) 
+Interface::Interface(std::string iName, std::string isInternal, int interfaceID) 
 {
   name = iName;
   internal = isInternal;
   id = interfaceID;
 }
 
-string Interface::ToString() 
+std::string Interface::ToString() 
 {
-  string res; 
+  std::string res; 
   res += WriteIndent() + "\"" + name + "\"" + " : {\n";
   // indentation should be increased
   IncreaseIndent();
@@ -27,12 +27,6 @@ string Interface::ToString()
 void Interface::SetIndent(int i) 
 {
   indent = i + 2;
-}
-
-void Interface::AddConnection(int interfaceID) 
-{
-  cout << "success" << endl;
-  connections.push_back(interfaceID);
 }
 
 int Interface::GetInterfaceID() 

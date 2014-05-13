@@ -1,0 +1,179 @@
+
+{
+  "matrix": [
+    [50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50]
+  ],
+  "processes": {
+    "GCM" : {
+      "internal" : false,
+      "data" : {
+        "GCM_MCC" : {
+          "internal" : true,
+          "data" : {
+            "ExecIn" : {
+              "internal" : false
+            },
+            "ExecOut" : {
+              "internal" : false
+            },
+            "InterfaceComponentProvided" : {
+              "internal" : true
+            },
+            "InterfaceComponentRequiredForcisstComponentViewerrcisstComponentViewer_MCCProxy" : {
+              "internal" : true
+            },
+            "InterfaceLCMProvided" : {
+              "internal" : true
+            },
+            "InterfaceLCMRequired" : {
+              "internal" : true
+            },
+            "StateTableStateTable" : {
+              "internal" : false
+            }
+          }
+        },
+        "MCS" : {
+          "internal" : true,
+          "data" : {
+            "ExecIn" : {
+              "internal" : false
+            },
+            "ExecOut" : {
+              "internal" : false
+            },
+            "InterfaceGCMProvided" : {
+              "internal" : true
+            },
+            "InterfaceGCMRequiredForGCM" : {
+              "internal" : true
+            },
+            "InterfaceGCMRequiredForcisstComponentViewer" : {
+              "internal" : true
+            },
+            "InterfaceSystemLoggerProvided" : {
+              "internal" : false
+            },
+            "StateTableStateTable" : {
+              "internal" : false
+            }
+          }
+        },
+        "cisstComponentViewerrcisstComponentViewer_MCCProxy" : {
+          "internal" : false,
+          "data" : {
+            "InterfaceInternalProvided" : {
+              "internal" : true
+            },
+            "InterfaceLCMProvidedForConn5" : {
+              "internal" : true
+            },
+            "InterfaceLCMRequired" : {
+              "internal" : true
+            }
+          }
+        }
+      }
+    },
+    "cisstComponentViewer" : {
+      "internal" : false,
+      "data" : {
+        "ComponentViewerD3" : {
+          "internal" : false,
+          "data" : {
+            "ExecIn" : {
+              "internal" : false
+            },
+            "ExecOut" : {
+              "internal" : false
+            },
+            "InterfaceInternalProvided" : {
+              "internal" : true
+            },
+            "InterfaceInternalRequired" : {
+              "internal" : true
+            },
+            "StateTableStateTable" : {
+              "internal" : false
+            }
+          }
+        },
+        "GCMrMCSProxy" : {
+          "internal" : false,
+          "data" : {
+            "InterfaceGCMProvidedForConn4" : {
+              "internal" : true
+            },
+            "InterfaceGCMRequiredForcisstComponentViewer" : {
+              "internal" : true
+            },
+            "InterfaceInternalProvided" : {
+              "internal" : true
+            }
+          }
+        },
+        "cisstComponentViewer_MCC" : {
+          "internal" : true,
+          "data" : {
+            "ExecIn" : {
+              "internal" : false
+            },
+            "ExecOut" : {
+              "internal" : false
+            },
+            "InterfaceComponentProvided" : {
+              "internal" : true
+            },
+            "InterfaceComponentRequiredForComponentViewerD3" : {
+              "internal" : true
+            },
+            "InterfaceComponentRequiredForGCMrMCSProxy" : {
+              "internal" : true
+            },
+            "InterfaceLCMProvided" : {
+              "internal" : true
+            },
+            "InterfaceLCMRequired" : {
+              "internal" : true
+            },
+            "StateTableStateTable" : {
+              "internal" : false
+            }
+          }
+        }
+      }
+    }
+  }
+}

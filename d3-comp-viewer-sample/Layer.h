@@ -1,18 +1,17 @@
+#include <iostream>
 #include <string>
 #include <map>
 
 #ifndef _Layer_h
 #define _Layer_h
 
-using namespace std;
 class Layer
 {
   protected:
     int indent;
-    string name;
-    string internal = "false";
-    map<string, Layer*> inners;
+    std::string internal = "false";
   public:
+    std::string name;
     void IncreaseIndent() {
       indent++;
     };
@@ -21,8 +20,8 @@ class Layer
       indent--;
     };
 
-    string WriteIndent() {
-      string res = "";
+    std::string WriteIndent() {
+      std::string res = "";
       for (int i = 0; i < indent; i++) {
         res += "  ";
       }
@@ -30,37 +29,11 @@ class Layer
     };
 
     virtual void SetIndent(int it) = 0;
-    virtual string ToString() = 0;
+    virtual std::string ToString() = 0;
 
-    string GetName() {
+    std::string GetName() {
       return name;
     };
 
-    void Insert(string name, Layer *inner) {
-      inners.insert(pair<string, Layer*>(name, inner));
-    };
-
-    string InnersToString() {
-      string ret;
-      map<string, Layer*>::iterator it = inners.begin();
-      ret += it->second->ToString();
-      it++;
-      for (; it != inners.end(); it++) {
-        ret += ",\n";
-        ret += it->second->ToString();
-      }
-      return ret;
-    };
-
-    virtual Layer* FindInnerElement(string key) {
-      map<string, Layer*>::iterator it = inners.find(key);
-      if (it != inners.end()) {
-        return it->second; 
-      } else {
-        return NULL;
-      }
-    };
-
-    void AddConnection(int interfaceID);
 };
 #endif

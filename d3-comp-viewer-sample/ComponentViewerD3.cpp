@@ -72,8 +72,8 @@ void ComponentViewerD3::SendAllInfo(void)
         parser->Insert(p->GetName(), p);
 
         for (j = 0; j < componentList.size(); j++) {
-            if (mtsManagerGlobal::IsProxyComponent(componentList[j]))
-                continue;
+            // if (mtsManagerGlobal::IsProxyComponent(componentList[j]))
+            //     continue;
             std::cout << "\tComponent: " << componentList[j] << std::endl;
             
             /**
@@ -109,25 +109,18 @@ void ComponentViewerD3::SendAllInfo(void)
             }
         }
     }
-    parser->Write();
 
     std::cout << "\n\nConnections:";
     std::vector<mtsDescriptionConnection> connectionList;
     connectionList = ManagerComponentServices->GetListOfConnections();
 
-    std::cout << "\n\naaaaaaaaaaa:";
     for (i = 0; i < connectionList.size(); i++) {
         std::cout << "\t" << connectionList[i] << std::endl;
-        // std::cout << connectionList[i].Client.ProcessName << endl;
-        // std::cout << connectionList[i].Client.ComponentName << endl;
-        // std::cout << connectionList[i].Client.InterfaceName << endl;
-        // std::cout << connectionList[i].Server.ProcessName << endl;
-        // std::cout << connectionList[i].Server.ComponentName << endl;
-        // std::cout << connectionList[i].Server.InterfaceName << endl;
-        // std::cout << endl;
         parser->ParseConnection(connectionList[i].Client.ProcessName, connectionList[i].Client.ComponentName, connectionList[i].Client.InterfaceName,
                                 connectionList[i].Server.ProcessName, connectionList[i].Server.ComponentName, connectionList[i].Server.InterfaceName);
     }
+
+    parser->Write();
 }
 
 void ComponentViewerD3::ProcessResponse(void)
